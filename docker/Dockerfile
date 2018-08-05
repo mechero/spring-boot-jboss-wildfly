@@ -1,7 +1,7 @@
 # Use OpenJDK 10 as the base image
 FROM openjdk:10-jdk
 
-# Part 1: taken from the jboss/base image
+# ========= Part 1: taken from the jboss/base image
 
 # Install packages necessary to run EAP
 RUN apt-get update -y && apt-get -y install xmlstarlet libsaxon-java augeas-tools libaugeas-dev bsdtar unzip && apt-get clean all
@@ -16,7 +16,7 @@ RUN groupadd -r jboss -g 1000 && useradd -u 1000 -r -g jboss -m -d /opt/jboss -s
 # Set the working directory to jboss' user home directory
 WORKDIR /opt/jboss
 
-# Part 2: taken from the official Wildfly image jboss/wildfly (based on jdk 8 at the moment of writing this)
+# ========= Part 2: taken from the official Wildfly image jboss/wildfly (based on jdk 8 at the moment of writing this)
 
 # Set the WILDFLY_VERSION env variable
 ENV WILDFLY_VERSION 13.0.0.Final

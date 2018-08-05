@@ -45,6 +45,18 @@
 
     <build>
         <plugins>
+            <!-- See https://jira.spring.io/browse/SPR-16990 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>jdk.unsupported</Dependencies>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
             <!-- OPTIONAL: Remove this plugin to reduce the WAR file size. It's not needed to deploy in an external application server. -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
