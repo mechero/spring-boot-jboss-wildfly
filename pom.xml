@@ -45,6 +45,7 @@
 
     <build>
         <plugins>
+            <!-- This is needed so Wildfly can run a Java 10 application. -->
             <!-- See https://jira.spring.io/browse/SPR-16990 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
