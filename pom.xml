@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>10</java.version>
     </properties>
 
     <dependencies>
@@ -45,6 +45,19 @@
 
     <build>
         <plugins>
+            <!-- This is needed so Wildfly can run a Java 10 application. -->
+            <!-- See https://jira.spring.io/browse/SPR-16990 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>jdk.unsupported</Dependencies>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
             <!-- OPTIONAL: Remove this plugin to reduce the WAR file size. It's not needed to deploy in an external application server. -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
