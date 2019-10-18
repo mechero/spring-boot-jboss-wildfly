@@ -1,0 +1,5 @@
+# This is the official image for Tomcat 9.x and OpenJDK 11
+FROM tomcat:9-jdk11-openjdk-slim
+
+# Copy the war file to the deployments folder
+COPY target/jboss-wildfly-demo-1.0.0-SNAPSHOT.war /usr/local/tomcat/webapps/tomcat-demo.war
