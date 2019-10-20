@@ -6,10 +6,6 @@ This is a sample project that shows how to deploy a `war` file with a Spring Boo
 
 ## Instructions
 
-First, you need to generate the package using Maven:
-
-`mvn clean package`
-
-Then, copy the generated `war` file in the `target` directory to the `docker` folder, build the docker image using the included `Dockerfile` and run it. You should be able to reach the endpoint via `http://localhost:8080/hola`.
+You need to have a JDK 11 installed in your system. Then, run the script `docker-build.sh` (or the commands inside if you're in Windows) and you will generate an image with a sample Spring Boot application packaged in a war file and deployed to Wildfly and Tomcat.
 
 The complete instructions [are here](https://thepracticaldeveloper.com/2017/09/02/how-to-deploy-a-spring-boot-war-in-wildfly-jboss/).
